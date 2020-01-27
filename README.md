@@ -56,7 +56,7 @@ To add a geospatial field to your migration you can use these methods:
 
 - point, multipoint linestring, multilinestring, polygon, multipolygon, geometrycollection
 
-Example (NB: the schema is over-semplified):
+Example (NB: the schema is over-simplified):
 
 ```php
 <?php
@@ -82,7 +82,7 @@ class CreateNationsTable extends Migration {
 
 ## Add spatial attributes to a Model
 
-In order to handle dinamically geospatial attributes during CRUD operations, you need to:
+In order to handle dynamically geospatial attributes during CRUD operations, you need to:
 
 - substitute the Eloquent Model abstract object with a custom Model
 - define which attribute belongs to which geospatial type, defining the `$geometries` attribute (you can find [here](https://github.com/karomap/laravel-geo/blob/master/src/Eloquent/Model.php#L15-L21) the available types)
