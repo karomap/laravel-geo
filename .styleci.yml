@@ -1,8 +1,4 @@
 preset: laravel
 
-enabled:
-  - alpha_ordered_imports
-
 disabled:
   - not_operator_with_successor_space
-  - unused_use
