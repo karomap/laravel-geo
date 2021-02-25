@@ -318,9 +318,20 @@ class Model extends IlluminateModel
      */
     protected function buildFeature($ogc, $properties)
     {
+        if (!$ogc) {
+            return [
+                'type' => 'Feature',
+                'geometry' => [
+                    'type' => 'Point',
+                    'coordinates' => [],
+                ],
+                'properties' => $properties,
+            ];
+        }
+
         $parsed = $this->wktParser->parse($ogc->toWKT());
 
-        $featureArray = [
+        return [
             'type' => 'Feature',
             'geometry' => [
                 'type' => OGCObject::getGeoJsonType($parsed['type']),
@@ -328,7 +339,5 @@ class Model extends IlluminateModel
             ],
             'properties' => $properties,
         ];
-
-        return $featureArray;
     }
 }
